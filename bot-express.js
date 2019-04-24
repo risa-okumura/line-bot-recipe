@@ -6,10 +6,16 @@ const Recipe = require('./src/domain/Recipe.js');
 const fs = require('fs');
 const CATEGORY = require('./src/domain/category.js')
 
+// const config = {
+//         channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
+//         channelSecret: process.env.CHANNEL_SECRET,
+// };
+
 const config = {
-        channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
-        channelSecret: process.env.CHANNEL_SECRET,
+    channelAccessToken: 'GIXXOPV1ocNzO+J2Qov5FpdTFGiT1/Iz1Pr9q+hVlWAa5+4rJkLw1OSGdoVUyJ2GZc+xGvfR3w1JZXVMLR1r4KSISVf2v1B5Sxemrx/bcDpfm63HNNRGuqfYR6M546TBDUdYSi48KUFhcf2SJzQ7JAdB04t89/1O/w1cDnyilFU=',
+    channelSecret: 'ce49f5f6fcc3620528178c57d2c6b48e',
 };
+
 const client = new line.Client(config);
     
 app.post('/recipe-bot',line.middleware(config),(req,res) => {
@@ -57,7 +63,7 @@ const getRecipe = async (event,categoryId) => {
     //楽天レシピのAPIを叩いてレシピ情報を取得.
     const res =  await axios.get(getUrl(categoryId));
     //取得した情報をもとにインスタンスを生成.
-    console.log("レシピランク:"+res.data.result.get('rank'));
+    // console.log("レシピランク:"+res.data.result.get('rank'));
     const recipe = new Recipe(res.data.result[0]);
     //レシピ情報をメッセージで送る.
     await client.pushMessage(event.source.userId,{
