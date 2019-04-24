@@ -1,0 +1,32 @@
+{
+    "type":"text",
+    "text":"↓メニューからカテゴリーを選んでください↓",
+    "quickReply":{
+        "items":[
+            {
+                "type":"action",
+                "action":{
+                    "type":"message",
+                    "label":"肉",
+                    "text":"肉"
+                }
+            },
+            {
+                "type":"action",
+                "action":{
+                    "type":"message",
+                    "label":"魚",
+                    "text":"魚"
+                }
+            },
+            {
+                "type":"action",
+                "action":{
+                    "type":"message",
+                    "label":"サラダ",
+                    "text":"サラダ"
+                }
+            }
+         ]
+    }
+}
