@@ -9,11 +9,7 @@ const CATEGORY = require('./src/domain/category.js')
 const config = {
         channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
         channelSecret: process.env.CHANNEL_SECRET,
-    };
-// const config = {
-//     channelAccessToken:'GIXXOPV1ocNzO+J2Qov5FpdTFGiT1/Iz1Pr9q+hVlWAa5+4rJkLw1OSGdoVUyJ2GZc+xGvfR3w1JZXVMLR1r4KSISVf2v1B5Sxemrx/bcDpfm63HNNRGuqfYR6M546TBDUdYSi48KUFhcf2SJzQ7JAdB04t89/1O/w1cDnyilFU=',
-//     channelSecret:'ce49f5f6fcc3620528178c57d2c6b48e'
-// };
+};
 
 const client = new line.Client(config);
     
