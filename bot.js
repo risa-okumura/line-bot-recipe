@@ -1,3 +1,5 @@
+//hapiバージョン（未使用）
+
 const hapi = require('hapi');
 const line = require('@line/bot-sdk');
 const request = require('superagent');
