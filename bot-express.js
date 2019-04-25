@@ -2,7 +2,7 @@ const line = require('@line/bot-sdk');
 const express = require('express');
 const axios = require('axios');
 const app = express();
-const Recipe = require('./src/domain/Recipe.js');
+const Recipe = require('./src/domain/recipe.js');
 const fs = require('fs');
 const CATEGORY = require('./src/domain/category.js')
 
@@ -70,8 +70,9 @@ const getRecipe = async (event,categoryId) => {
     await setMenu(event);
 }
     
-//クイックリプライを作成.
+//クイックリプライ機能を使ってメニューボタンを作成.
 const setMenu = async (event)=>{
+    //クイックリプライ用のjsonファイルを読み込む.
     const menuMessage = JSON.parse(fs.readFileSync('./src/json/menu.json','utf-8'));
     client.replyMessage(event.replyToken,menuMessage);
 }
