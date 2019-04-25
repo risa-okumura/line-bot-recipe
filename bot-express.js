@@ -52,10 +52,7 @@ const handleEvent = (event) =>{
             getRecipe(event,CATEGORY.SALADA);
             break;
         default:
-            client.pushMessage(event.source.userId,{
-                type: 'text',
-                text: recipe.createMessage(event.message.text)
-            });
+            setMenu(event);
     }
 }
 //レシピ情報を取得する.
