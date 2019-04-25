@@ -34,7 +34,6 @@ module.exports = class Recipe {
     set recipeIndication(value){
         this._recipeIndication = value;
     }
-
     createMessage(value){
         return '★'+value+'のオススメレシピ★\n' + this.recipeTitle + '\n' + this.recipeUrl;
     }
