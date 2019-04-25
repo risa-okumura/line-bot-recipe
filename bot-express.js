@@ -9,7 +9,7 @@ const CATEGORY = require('./src/domain/category.js')
 const config = {
         channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
         channelSecret: process.env.CHANNEL_SECRET,
-};
+};90
 
 // const config = {
 //     channelAccessToken: 'GIXXOPV1ocNzO+J2Qov5FpdTFGiT1/Iz1Pr9q+hVlWAa5+4rJkLw1OSGdoVUyJ2GZc+xGvfR3w1JZXVMLR1r4KSISVf2v1B5Sxemrx/bcDpfm63HNNRGuqfYR6M546TBDUdYSi48KUFhcf2SJzQ7JAdB04t89/1O/w1cDnyilFU=',
