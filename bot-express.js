@@ -9,7 +9,7 @@ const CATEGORY = require('./src/domain/category.js')
 const config = {
         channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
         channelSecret: process.env.CHANNEL_SECRET,
-};90
+};
 
 const client = new line.Client(config);
     
@@ -66,11 +66,12 @@ const getRecipe = async (event,categoryId) => {
 }
     
 //クイックリプライ機能を使ってメニューボタンを作成.
-const setMenu = async (event)=>{
+const setMenu = (event)=>{
     //クイックリプライ用のjsonファイルを読み込む.
     const menuMessage = JSON.parse(fs.readFileSync('./src/json/menu.json','utf-8'));
     client.replyMessage(event.replyToken,menuMessage);
 }
+
 //カテゴリーIDをもとに楽天レシピAPIのURLを作成.
 const getUrl = (categoryId) =>{
     var url = "https://app.rakuten.co.jp/services/api/Recipe/CategoryRanking/20170426?applicationId=1070489888626363239&categoryId=" + categoryId;
