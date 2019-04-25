@@ -60,7 +60,6 @@ const getRecipe = async (event,categoryId) => {
     //楽天レシピのAPIを叩いてレシピ情報を取得.
     const res =  await axios.get(getUrl(categoryId));
     //取得した情報をもとにインスタンスを生成.
-    // console.log("レシピランク:"+res.data.result.get('rank'));
     const recipe = new Recipe(res.data.result[0]);
     //レシピ情報をメッセージで送る.
     await client.pushMessage(event.source.userId,{
