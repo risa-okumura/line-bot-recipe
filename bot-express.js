@@ -11,11 +11,6 @@ const config = {
         channelSecret: process.env.CHANNEL_SECRET,
 };90
 
-// const config = {
-//     channelAccessToken: 'GIXXOPV1ocNzO+J2Qov5FpdTFGiT1/Iz1Pr9q+hVlWAa5+4rJkLw1OSGdoVUyJ2GZc+xGvfR3w1JZXVMLR1r4KSISVf2v1B5Sxemrx/bcDpfm63HNNRGuqfYR6M546TBDUdYSi48KUFhcf2SJzQ7JAdB04t89/1O/w1cDnyilFU=',
-//     channelSecret: 'ce49f5f6fcc3620528178c57d2c6b48e',
-// };
-
 const client = new line.Client(config);
     
 app.post('/recipe-bot',line.middleware(config),(req,res) => {
