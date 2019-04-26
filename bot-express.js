@@ -12,31 +12,33 @@ const config = {
 };
 
 const client = new line.Client(config);
-    
+
+//Lineからのリクエストを受けとる
 app.post('/recipe-bot',line.middleware(config),(req,res) => {
     console.log(req.body.events);
     Promise
         .all(
+            //イベントによってリプライ内容を変える.
             req.body.events.map(handleEvent),
             )
-        .then((result)=>res.json(result))
+        .then((result) => res.json(result))
         .catch((err) => {
             console.error(err);
             res.status(500).end();
         });
 });
     
-const handleEvent = (event) =>{
+const handleEvent = (event) => {
     //フォローされたときにメニューのクイックリプライを送る.
-    if(event.type == 'follow'){
+    if (event.type == 'follow') {
         setMenu(event);
     }
     //メッセージやテキスト以外のリクエストにはnullを返す.
-    if(event.type !== 'message' || event.message.type !== 'text'){
+    if (event.type !== 'message' || event.message.type !== 'text'){
         return Promise.resolve(null);
     }   
     //リクエスト内容によってリプライメッセージを変更する.
-    switch(event.message.text){
+    switch (event.message.text) {
         case '肉':
             getRecipe(event,CATEGORY.MEAT);
             break;
@@ -66,7 +68,7 @@ const getRecipe = async (event,categoryId) => {
 }
     
 //クイックリプライ機能を使ってメニューボタンを作成.
-const setMenu = (event)=>{
+const setMenu = (event) => {
     //クイックリプライ用のjsonファイルを読み込む.
     const menuMessage = JSON.parse(fs.readFileSync('./src/json/menu.json','utf-8'));
     client.replyMessage(event.replyToken,menuMessage);
@@ -79,7 +81,6 @@ const getUrl = (categoryId) =>{
 }
    
 const port = process.env.PORT || 3000;
-    app.listen(port,() => {
+    app.listen(port, () => {
     console.log("listening on ${port}")
 });
-    
